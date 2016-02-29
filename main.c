@@ -25,30 +25,30 @@ void user_func(manager_t *mgr, void *data){
     int i = 0;
     int count = ud->count;
     for (; i < 3; ++i){
-        printf("uthread:%ld, %d suspend\n", mgr->run_id, count++);
+        printf("user_func uthread:%ld, %d suspend\n", mgr->run_id, count++);
         uthread_suspend(mgr);
-        printf("uthread:%ld, suspend done\n", mgr->run_id);
+        printf("user_func uthread:%ld, suspend done\n", mgr->run_id);
     }     
 }
 
 void test_uthread(manager_t *mgr){
     user_data_t *ud = (user_data_t*)malloc(sizeof(user_data_t));
     ud->count = 1;
-    int total = 100;
+    int total = 50000;
     uthread_id_t ids[total];
     int i = 0;
     for (; i < total; ++i){
         ids[i] = uthread_create(mgr, user_func, (void*)ud);
-        printf("uthread_create:%ld\n", ids[i]);
+        printf("test_uthread uthread_create:%ld\n", ids[i]);
     }
 
 
     while (uthread_status(mgr, ids[0]) != UTHREAD_DEAD){
         i = 0;
         for (; i < total; ++i){
-            printf("uthread_resume:%d begin\n", i);
+            printf("test_uthread uthread_resume:%d begin\n", i);
             uthread_resume(mgr, ids[i]);
-            printf("uthread_resume:%d end\n", i);
+            printf("test_uthread uthread_resume:%d end\n", i);
         }
     }
 }

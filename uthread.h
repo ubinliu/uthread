@@ -40,8 +40,6 @@ typedef long uthread_id_t;
 
 typedef void (*schedule_t)(struct manager_s *mgr);
 
-void default_schedule(struct manager_s *mgr);
-
 typedef void (*uthread_func_t)(struct manager_s *mgr, void *data);
 
 typedef struct uthread_s {
@@ -50,12 +48,10 @@ typedef struct uthread_s {
     uthread_func_t func;
     void *data;
     uthread_status_t status;
-    char *stack;
-    long stack_size;
 }uthread_t;
 
 typedef struct manager_s{
-    ucontext_t ctx;
+    ucontext_t ctx;    
     schedule_t schedule;
     uthread_t **threads;
     uthread_id_t run_id;
