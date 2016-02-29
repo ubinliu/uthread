@@ -4,8 +4,8 @@
  
  *       Filename:  base.cpp
  *    Description:  
- *         Author:  liuyoubin@baidu.com
- *        Company:  Baidu.com, Inc
+ *         Author:  liuyoubin@ubinliu.com
+ *        Company:  Ubinliu.com, Inc
  *        Created:  2015-05-25 10:32:35
  
  * ============================================================

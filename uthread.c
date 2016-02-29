@@ -4,8 +4,8 @@
  
  *       Filename:  uthread.c
  *    Description:  
- *         Author:  liuyoubin@baidu.com
- *        Company:  Baidu.com, Inc
+ *         Author:  liuyoubin@ubinliu.com
+ *        Company:  Ubinliu.com, Inc
  *        Created:  2016-02-26 17:06:49
  
  * ============================================================
